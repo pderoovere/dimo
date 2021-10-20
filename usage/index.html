@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<title>Dataset of Industrial Metal Objects – Usage</title>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.min.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Dataset of Industrial Metal Objects</h1>
+        <nav>
+            <a href="../">Overview</a>
+            <a href="" class="active">Usage</a>
+            <a href="../methodology/">Methodology</a>
+        </nav>
+    </header>
+
+    <div class="downloads">
+        <a onclick="alert('amost ready...')" class="download"><span class="material-icons md-18">download</span>dimo_loader.py</a>
+    </div>
+
+    <h2>Dataset</h2>
+    <p>We provide <span class="filename">dimo_loader.py</span> to easily load the dataset.</p>
+    <p>
+        The dataset is structured using the <a href="https://github.com/thodan/bop_toolkit/blob/master/docs/bop_datasets_format.md">BOP dataset format</a>, with two additional files:
+    <ul>
+        <li><span class="code">scene_gt_world.json</span> with object poses in a global world frame.</li>
+        <li><span class="code">scene_info.json</span> with information about the data-generation process (which light / carrier / parts configuration).</li>
+    </ul>
+    </p>
+
+    <h2>Code samples</h2>
+    <div class='code block'>
+        <span class="caption">Load dataset.</span>
+        <p>
+            from dimo_loader import DimoLoader<br>
+            from pathlib import Path<br>
+            <br>
+            dimo_loader = DimoLoader()<br>
+            dimo_path = Path('...') <span class='comment'># Set path to downloaded dataset folder</span><br>
+            dimo_ds = dimo_loader.load(dimo_path)<br>
+        </p>
+    </div>
+
+    <div class='code block'>
+        <span class="caption">Iterate over parts.</span>
+        <p>
+            parts = dimo_ds['parts']<br>
+            <br>
+            for part in parts:<br>
+            <span class='spacer'></span>part_id = part['id'] <span class='comment'># int</span><br>
+            <span class='spacer'></span>cadPath = part['cadPath'] <span class='comment'># str</span><br>
+            <span class='spacer'></span><span class='comment'># additional entries for size, diameter and symmetries</span>
+        </p>
+    </div>
+
+    <div class='code block'>
+        <span class="caption">Iterate over scenes for real JAI-GO camera.</span>
+        <p>
+            real_jaigo_scenes = dimo_ds['real_jaigo']['scenes']<br>
+            for scene in real_jaigo_scenes:<br>
+            <span class='spacer'></span>scene_id = scene['id'] <span class='comment'># int</span><br>
+            <span class='spacer'></span>for image in scene['images']:<br>
+            <span class='spacer'></span><span class='spacer'></span>img_id = image['id'] <span class='comment'># int</span><br>
+            <span class='spacer'></span><span class='spacer'></span>img_path = cam['imgPath'] <span class='comment'># str</span><br>
+            <span class='spacer'></span><span class='spacer'></span>cam = image['cam'] <span class='comment'># dict with intrinsics and extrinsics</span><br>
+            <span class='spacer'></span><span class='spacer'></span>scene_info = image['scene_info']<br>
+            <span class='spacer'></span><span class='spacer'></span>light_id = scene_info['light_id'] <span class='comment'>Lightmap id</span><br>
+            <span class='spacer'></span><span class='spacer'></span>carrier_id = scene_info['carrier_id'] <span class='comment'>Carrier id</span><br>
+            <span class='spacer'></span><span class='spacer'></span>composition_type = scene_info['composition_type'] <span class='comment'>Composition type</span><br>
+            <span class='spacer'></span><span class='spacer'></span>viewpoint_id = scene_info['viewpoint_id'] <span class='comment'>Viewpoint id</span><br>
+            <span class='spacer'></span><span class='spacer'></span>for obj in image['objects']:<br>
+            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>obj_id = obj['obj_id'] <span class='comment'># int</span><br>
+            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>obj_R_m2c = obj['obj_R_m2c'] <span class='comment'># Object to camera (rotation)</span><br>
+            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>obj_t_m2c = obj['obj_t_m2c'] <span class='comment'># Object to camera (translation)</span><br>
+            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>obj_R_m2w = obj['obj_R_m2w'] <span class='comment'># Object to world (rotation)</span><br>
+            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>obj_t_m2w = obj['obj_t_m2w'] <span class='comment'># Object to world (translation)</span><br>
+        </p>
+    </div>
+
+    <h2>License</h2>
+    <p class="license">
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+    </p>
+</body>
+
+</html>

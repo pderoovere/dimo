@@ -1,1 +1,65 @@
-Test
+<!DOCTYPE html>
+<html>
+<title>Dataset of Industrial Metal Objects</title>
+
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.min.css">
+</head>
+
+<body>
+
+    <header>
+        <h1>Dataset of Industrial Metal Objects</h1>
+        <nav>
+            <a href="" class="active">Overview</a>
+            <a href="usage/">Usage</a>
+            <a href="methodology/">Methodology</a>
+        </nav>
+    </header>
+
+    <iframe width="800" height="600" src="https://www.youtube-nocookie.com/embed/_J-z9AGEiHI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+    <div class="downloads">
+        <a onclick="alert('almost ready...')" class="download"><span class="material-icons md-18">download</span>1% sample</a>
+        <a href="" class="download soon"><span class="material-icons">download</span>10% sample</a>
+        <a href="" class="download soon"><span class="material-icons">download</span>complete</a>
+    </div>
+
+    <h2>Introduction</h2>
+    <p>
+        We present a diverse dataset of industrial metal objects. These objects are symmetric, textureless and highly reflective, leading to challenging conditions not captured in existing datasets. Our 6D object pose estimation dataset contains both real-world and synthetic images. Real-world data is obtained by recording multi-view images of scenes with varying object shapes, materials, carriers, compositions and lighting conditions. This leads to over 30,000 images, accurately labelled using a new public tool. Synthetic data is obtained by carefully simulating real-world conditions and varying them in a controlled and realistic way. This leads to over 500,000 synthetic images. The close correspondence between synthetic and real-world data, and controlled variations, will facilitate sim-to-real research. Our dataset's size and challenging nature will facilitate research on various computer vision tasks involving reflective materials.
+    </p>
+
+    <div class="image-wrapper">
+        <img src="images/side-by-side.jpg" width="600px" height="480px">
+        <span class="caption">Side-by-side comparison of a real-world image (left) and its synthetic counterpart (right).</span>
+    </div>
+
+    <h2>Data</h2>
+    <p>
+        Our dataset contains 31,200 images of 600 real-world scenes and 553,800 images of 42,600 synthetic scenes, stored in a uniﬁed format. In addition to <b>camera intrinsics and extrinsics</b>, <b>object models</b> and <b>object pose labels</b>, we store information about the <b>data generation process</b>.
+    </p>
+    <div class="image-wrapper">
+        <img src="images/structure.svg" width="268px" height="367px">
+        <span class="caption">Folder structure.</span>
+    </div>
+
+    <h2>Authors</h2>
+    <p>
+        Peter De Roovere<sup>1</sup>, Steven Moonen<sup>2</sup>, Nick Michiels<sup>2</sup>, Francis wyffels<sup>1</sup>
+    </p>
+    <p>
+        <sup>1</sup> <a href="https://airo.ugent.be" target="_blank">IDLab-AIRO – Ghent University – imec</a>
+    </p>
+    <p>
+        <sup>2</sup> <a href="https://www.uhasselt.be/edm" target="_blank">EDM – Hasselt University</a>
+    </p>
+
+</body>
+
+</html>
