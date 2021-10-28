@@ -39,10 +39,10 @@ Or, to iterate over scenes:
             carrier_id = scene_info['carrier_id'] Carrier id
             composition_type = scene_info['composition_type'] Composition type
             viewpoint_id = scene_info['viewpoint_id'] Viewpoint id
-        for obj in image['objects']:
-            obj_id = obj['id'] # int
-            model_2world = obj['model_2world'] # Object to world, (4,4)
-            model_2cam = obj['model_2cam'] # Object to camera, (4,4)
+            for obj in image['objects']:
+                obj_id = obj['id'] # int
+                model_2world = obj['model_2world'] # Object to world, (4,4)
+                model_2cam = obj['model_2cam'] # Object to camera, (4,4)
 
 ## Viewer
 The [dimo_viewer.ipynb](dimo_viewer.ipynb) notebook can be used to visualize samples.
