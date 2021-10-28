@@ -48,13 +48,13 @@
     </div>
 
     <div class='code block'>
-        <span class="caption">Iterate over parts.</span>
+        <span class="caption">Iterate over part models.</span>
         <p>
-            parts = dimo_ds['parts']<br>
+            models = dimo_ds['models']<br>
             <br>
-            for part in parts:<br>
-            <span class='spacer'></span>part_id = part['id'] <span class='comment'># int</span><br>
-            <span class='spacer'></span>cadPath = part['cadPath'] <span class='comment'># str</span><br>
+            for model in models:<br>
+            <span class='spacer'></span>model_id = model['id'] <span class='comment'># int</span><br>
+            <span class='spacer'></span>cad = model['cad'] <span class='comment'># Path</span><br>
             <span class='spacer'></span><span class='comment'># additional entries for size, diameter and symmetries</span>
         </p>
     </div>
@@ -67,19 +67,17 @@
             <span class='spacer'></span>scene_id = scene['id'] <span class='comment'># int</span><br>
             <span class='spacer'></span>for image in scene['images']:<br>
             <span class='spacer'></span><span class='spacer'></span>img_id = image['id'] <span class='comment'># int</span><br>
-            <span class='spacer'></span><span class='spacer'></span>img_path = cam['imgPath'] <span class='comment'># str</span><br>
-            <span class='spacer'></span><span class='spacer'></span>cam = image['cam'] <span class='comment'># dict with intrinsics and extrinsics</span><br>
+            <span class='spacer'></span><span class='spacer'></span>img_path = cam['path'] <span class='comment'># str</span><br>
+            <span class='spacer'></span><span class='spacer'></span>camera = image['camera'] <span class='comment'># dict with intrinsics and extrinsics</span><br>
             <span class='spacer'></span><span class='spacer'></span>scene_info = image['scene_info']<br>
             <span class='spacer'></span><span class='spacer'></span>light_id = scene_info['light_id'] <span class='comment'>Lightmap id</span><br>
             <span class='spacer'></span><span class='spacer'></span>carrier_id = scene_info['carrier_id'] <span class='comment'>Carrier id</span><br>
             <span class='spacer'></span><span class='spacer'></span>composition_type = scene_info['composition_type'] <span class='comment'>Composition type</span><br>
             <span class='spacer'></span><span class='spacer'></span>viewpoint_id = scene_info['viewpoint_id'] <span class='comment'>Viewpoint id</span><br>
             <span class='spacer'></span><span class='spacer'></span>for obj in image['objects']:<br>
-            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>obj_id = obj['obj_id'] <span class='comment'># int</span><br>
-            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>obj_R_m2c = obj['obj_R_m2c'] <span class='comment'># Object to camera (rotation)</span><br>
-            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>obj_t_m2c = obj['obj_t_m2c'] <span class='comment'># Object to camera (translation)</span><br>
-            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>obj_R_m2w = obj['obj_R_m2w'] <span class='comment'># Object to world (rotation)</span><br>
-            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>obj_t_m2w = obj['obj_t_m2w'] <span class='comment'># Object to world (translation)</span><br>
+            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>obj_id = obj['id'] <span class='comment'># int</span><br>
+            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>model_2world = obj['model_2world'] <span class='comment'># Object to world, (4,4) transformation matrix</span><br>
+            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>model_2cam = obj['model_2cam'] <span class='comment'># Object to camera, (4,4) transformation matrix</span><br>
         </p>
     </div>
 
