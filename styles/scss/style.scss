@@ -61,6 +61,13 @@ body {
         margin: 0;
     }
 
+    h3 {
+        font-weight: 500;
+        font-size: 1em;
+        padding: 1em 0 0.25em 0;
+        margin: 0;
+    }
+
     p {
         margin: 0 0.25em 0.5em 0;
     }
@@ -173,4 +180,32 @@ body {
     }
 
     
+}
+
+a.file {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 400;
+    color: rgb(30, 100, 200);
+    border-bottom: 1px solid transparent;
+    &:hover {
+        border-bottom: 1px solid rgb(30, 100, 200);
+    }
+    &.soon {
+        color: rgb(220, 220, 235);
+        border-color: rgb(220, 220, 235);
+        pointer-events: none;
+    }
+    .due {
+        margin-left: 8px;
+        font-weight: bold;
+    }
+    .size {
+        margin-left: 12px;
+        padding: 2px 4px;
+        background-color: #FAF9FD;
+        border-radius: 2px;
+        color: rgb(120, 120, 135);
+        font-weight: 300;
+    }
 }
