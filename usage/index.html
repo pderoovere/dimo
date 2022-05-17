@@ -5,7 +5,8 @@
 <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.min.css">
 </head>
@@ -26,12 +27,16 @@
 
     <h2>Dataset</h2>
 
-    <p>We provide <span class="code">dimo_loader.py</span> to easily load the dataset. This file is available on <a target="_blank" href="https://github.com/pderoovere/dimo/tree/gh-pages/scripts">GitHub</a>.</p>
+    <p>We provide <span class="code">dimo_loader.py</span> to easily load the dataset. This file is available on <a
+            target="_blank" href="https://github.com/pderoovere/dimo/tree/gh-pages/scripts">GitHub</a>.</p>
     <p>
-        The dataset is structured using the <a href="https://github.com/thodan/bop_toolkit/blob/master/docs/bop_datasets_format.md" target="_blank">BOP dataset format</a>, with two additional files:
+        The dataset is structured using the <a
+            href="https://github.com/thodan/bop_toolkit/blob/master/docs/bop_datasets_format.md" target="_blank">BOP
+            dataset format</a>, with two additional files:
     <ul>
         <li><span class="code">scene_gt_world.json</span> with object poses in a global world frame.</li>
-        <li><span class="code">scene_info.json</span> with information about the data-generation process (which light / carrier / parts configuration).</li>
+        <li><span class="code">scene_info.json</span> with information about the data-generation process (which light /
+            carrier / parts configuration).</li>
     </ul>
     </p>
 
@@ -56,35 +61,49 @@
             for model in models:<br>
             <span class='spacer'></span>model_id = model['id'] <span class='comment'># int</span><br>
             <span class='spacer'></span>cad = model['cad'] <span class='comment'># Path</span><br>
-            <span class='spacer'></span><span class='comment'># additional entries for size, diameter and symmetries</span>
+            <span class='spacer'></span><span class='comment'># additional entries for size, diameter and
+                symmetries</span>
         </p>
     </div>
 
     <div class='code block'>
         <span class="caption">Iterate over scenes for real JAI-GO camera.</span>
         <p>
-            real_jaigo_scenes = dimo_ds['real_jaigo']['scenes']<br>
+            real_jaigo_scenes = dimo_ds['real_jaigo']<br>
             for scene in real_jaigo_scenes:<br>
             <span class='spacer'></span>scene_id = scene['id'] <span class='comment'># int</span><br>
             <span class='spacer'></span>for image in scene['images']:<br>
-            <span class='spacer'></span><span class='spacer'></span>img_id = image['id'] <span class='comment'># int</span><br>
-            <span class='spacer'></span><span class='spacer'></span>img_path = cam['path'] <span class='comment'># str</span><br>
-            <span class='spacer'></span><span class='spacer'></span>camera = image['camera'] <span class='comment'># dict with intrinsics and extrinsics</span><br>
+            <span class='spacer'></span><span class='spacer'></span>img_id = image['id'] <span class='comment'>#
+                int</span><br>
+            <span class='spacer'></span><span class='spacer'></span>img_path = image['path'] <span class='comment'>#
+                str</span><br>
+            <span class='spacer'></span><span class='spacer'></span>camera = image['camera'] <span class='comment'>#
+                dict with intrinsics and extrinsics</span><br>
             <span class='spacer'></span><span class='spacer'></span>scene_info = image['scene_info']<br>
-            <span class='spacer'></span><span class='spacer'></span>light_id = scene_info['light_id'] <span class='comment'>Lightmap id</span><br>
-            <span class='spacer'></span><span class='spacer'></span>carrier_id = scene_info['carrier_id'] <span class='comment'>Carrier id</span><br>
-            <span class='spacer'></span><span class='spacer'></span>composition_type = scene_info['composition_type'] <span class='comment'>Composition type</span><br>
-            <span class='spacer'></span><span class='spacer'></span>viewpoint_id = scene_info['viewpoint_id'] <span class='comment'>Viewpoint id</span><br>
+            <span class='spacer'></span><span class='spacer'></span>light = scene_info['light'] <span
+                class='comment'>Lightmap id</span><br>
+            <span class='spacer'></span><span class='spacer'></span>carrier = scene_info['carrier'] <span
+                class='comment'>Carrier id</span><br>
+            <span class='spacer'></span><span class='spacer'></span>parts = scene_info['parts']
+            <span class='comment'>Composition type</span><br>
+            <span class='spacer'></span><span class='spacer'></span>viewpoint = scene_info['viewpoint'] <span
+                class='comment'>Viewpoint id</span><br>
             <span class='spacer'></span><span class='spacer'></span>for obj in image['objects']:<br>
-            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>obj_id = obj['id'] <span class='comment'># int</span><br>
-            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>model_2world = obj['model_2world'] <span class='comment'># Object to world, (4,4)</span><br>
-            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>model_2cam = obj['model_2cam'] <span class='comment'># Object to camera, (4,4)</span><br>
+            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>obj_id = obj['id'] <span
+                class='comment'># int</span><br>
+            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>model_2world =
+            obj['model_2world'] <span class='comment'># Object to world, (4,4)</span><br>
+            <span class='spacer'></span><span class='spacer'></span><span class='spacer'></span>model_2cam =
+            obj['model_2cam'] <span class='comment'># Object to camera, (4,4)</span><br>
         </p>
     </div>
 
     <h2>License</h2>
     <p class="license">
-        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
+        <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons License"
+                style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is
+        licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+            Attribution 4.0 International License</a>.
     </p>
 </body>
 
