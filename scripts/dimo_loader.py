@@ -29,7 +29,7 @@ class DimoLoader:
         return [self.load_scene(path) for path in sorted(path.glob("[!.]*"))]
 
     def load_scene(self, path):
-        scene_id = int(path.name)
+        scene_id = path.name
         result = {"id": scene_id}
         images = []
         with open(path / "scene_camera.json") as f_scene_camera, open(
