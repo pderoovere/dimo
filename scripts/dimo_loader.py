@@ -20,9 +20,10 @@ class DimoLoader:
             result = []
             for model_id, model in models.items():
                 model_id = int(model_id)  # convert id from str to int
-                model["cad"] = path / f"obj_{int(model_id):06d}.ply"  # add cad path
-                model["id"] = model_id
-                result.append(model)
+                if model_id < 100:
+                    model["cad"] = path / f"obj_{int(model_id):06d}.ply"  # add cad path
+                    model["id"] = model_id
+                    result.append(model)
             return result
 
     def load_scenes(self, path):
