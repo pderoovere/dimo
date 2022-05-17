@@ -10,36 +10,43 @@ html {
 header {
     margin-bottom: 2em;
 
-    > h1 {
+    >h1 {
         font-weight: 600;
         font-size: 2em;
         padding: 0 0 1em 0;
         margin: 0;
         text-align: center;
         color: rgb(29, 29, 31);
-        
+
     }
-    > nav {
+
+    >nav {
         text-align: center;
-        > a {
+
+        >a {
             font-size: 1em;
             color: rgb(0, 122, 255);
             color: rgb(30, 100, 200);
             font-weight: 500;
             text-decoration: none;
+
             &:hover {
                 border-bottom: 1px solid rgb(30, 100, 200);
             }
+
             &.active {
                 pointer-events: none;
                 color: rgb(29, 29, 31);
                 border-bottom: none !important;
             }
+
             margin-right: 1.5em;
+
             &:last-child {
                 margin-right: 0;
             }
         }
+
         margin-bottom: 1em;
         padding-bottom: 0.4em;
         border-bottom: 1px solid rgb(200, 200, 220);
@@ -59,6 +66,18 @@ body {
         font-size: 1.25em;
         padding: 1.5em 0 1em 0;
         margin: 0;
+
+        >span.new {
+            background-color: rgb(236, 241, 177);
+            text-transform: uppercase;
+            font-size: 0.5em;
+            padding: 0.5em 0.75em;
+            border-radius: 0.4em;
+            margin-left: 0.5em;
+            font-weight: 400;
+            position: relative;
+            top: -0.25em;
+        }
     }
 
     h3 {
@@ -100,14 +119,16 @@ body {
             display: inline-block;
         }
     }
-    
+
     ul {
         margin: 0;
         padding: 0;
+
         li {
             margin: 0;
             padding: 0 0 0.5em 0;
             list-style: none;
+
             &:last-child {
                 padding: 0;
             }
@@ -117,9 +138,10 @@ body {
     a {
         color: rgb(30, 100, 200);
         text-decoration: none;
-            &:hover {
-                border-bottom: 1px solid rgb(30, 100, 200);
-            }
+
+        &:hover {
+            border-bottom: 1px solid rgb(30, 100, 200);
+        }
     }
 
     .downloads {
@@ -141,21 +163,26 @@ body {
         font-size: 0.8em;
         letter-spacing: 0.05em;
         margin-right: 1em;
+
         &:last-child {
             margin-right: 0;
         }
+
         &:hover {
             background-color: rgb(30, 100, 200);
             color: white;
         }
+
         &.soon {
             color: rgb(220, 220, 235);
             border-color: rgb(220, 220, 235);
             pointer-events: none;
         }
+
         .material-icons {
             margin-right: 4px;
         }
+
         .due {
             margin-left: 8px;
             font-weight: bold;
@@ -174,20 +201,23 @@ body {
         padding: 4px 12px;
         background-color: #FAF9FD;
         border-radius: 17px;
+
         .comment {
             opacity: 0.4;
         }
+
         &.block {
             margin: 0.25em 0 1.5em 0;
             padding: 0.5em 2em 0.75em 2em;
         }
+
         .spacer {
             width: 2em;
             display: inline-block;
         }
     }
 
-    
+
 }
 
 a.file {
@@ -196,18 +226,22 @@ a.file {
     font-weight: 400;
     color: rgb(30, 100, 200);
     border-bottom: 1px solid transparent;
+
     &:hover {
         border-bottom: 1px solid rgb(30, 100, 200);
     }
+
     &.soon {
         color: rgb(220, 220, 235);
         border-color: rgb(220, 220, 235);
         pointer-events: none;
     }
+
     .due {
         margin-left: 8px;
         font-weight: bold;
     }
+
     .size {
         margin-left: 12px;
         padding: 2px 4px;
