@@ -20,16 +20,17 @@ class DimoLoader:
             result = []
             for model_id, model in models.items():
                 model_id = int(model_id)  # convert id from str to int
-                model["cad"] = path / f"obj_{int(model_id):06d}.ply"  # add cad path
-                model["id"] = model_id
-                result.append(model)
+                if model_id < 100:
+                    model["cad"] = path / f"obj_{int(model_id):06d}.ply"  # add cad path
+                    model["id"] = model_id
+                    result.append(model)
             return result
 
     def load_scenes(self, path):
         return [self.load_scene(path) for path in sorted(path.glob("[!.]*"))]
 
     def load_scene(self, path):
-        scene_id = int(path.name)
+        scene_id = path.name
         result = {"id": scene_id}
         images = []
         with open(path / "scene_camera.json") as f_scene_camera, open(
